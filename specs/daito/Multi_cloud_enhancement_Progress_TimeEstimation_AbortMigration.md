@@ -1,10 +1,10 @@
-# To show the Progress and Time Estimation for object migration
+# Multi-Cloud Feature Enhancements: Progress, Time Estimation and Abort Migration Features
 
 **Author(s):** Click2Cloud
 
 # Background
 
- On OpenSDS dashboard progress for migration increases when each object got migrated and it does not show the estimated time for migration process to complete. Currently OpenSDS do not support Abort migration method for running migration process.
+On OpenSDS dashboard progress for migration increases when each object got migrated and it does not show the estimated time for migration process to complete. Also existing OpenSDS Multi-Cloud project do not support Abort migration method for running migration process.
 
 # Goals
 - To show Progress of object migration process which will increase gradually.
@@ -77,9 +77,9 @@ Default value of “AbortMigration” is “False”
 
      
   
- ##### b.Finite State Machine method (Preferable)       
+ ##### b.Finite State Machine method an using code (Preferable)       
  
- - We are working on another approach in which using goroutines and channels,
+ - We are working on another approach in which using code and less interaction with database,
    one can pause, resume or cancel the process (preferable).
    
  - Finite State Machine (FSM, ref: https://github.com/looplab/fsm) will manage the
@@ -105,7 +105,7 @@ For each Job we will maintain following values in database:
 
 }
 
-To abort migration process we will have following API
+To abort migration process, we will have following API
 
 POST: http://127.0.0.1:8089/v1/adminTenantId/jobs/{{ Job-ID }}/abort
 
