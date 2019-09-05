@@ -1,6 +1,6 @@
 # Multi-Cloud Feature Enhancements: Progress, Time Estimation and Abort Migration Features
 
-**Author(s):** Click2Cloud
+**Author(s):** Click2Cloud Inc (India)
 
 # Background
 
