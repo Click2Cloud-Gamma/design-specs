@@ -59,25 +59,9 @@ updated as shown below.
                       FIG: Time estimation for migration process
   
   
-####   Abort-migration
-
-##### a.Database method
-Add 1 parameter AbortMigration in database,
-
-In migration process, after migration of each object, it will check the value of “AbortMigration”,
-if it is “false” then it will continue migration process for further objects and if it is assigned as
-“true” it will break the process and come out of for loop.   
-
-Default value of “AbortMigration” is “False”
-
-![picture](5.png)
-
-                        FIG: Abort-migration Process
-                        
-
-     
+####   Abort-migration    
   
- ##### b.Finite State Machine method an using code (Preferable)       
+ ##### Finite State Machine method an using code (Preferable)       
  
  - We are working on another approach in which using code and less interaction with database,
    one can pause, resume or cancel the process (preferable).
@@ -94,17 +78,6 @@ Default value of “AbortMigration” is “False”
  
 #  Abort API
 
-##### a. Database method
-For each Job we will maintain following values in database:
-
-{
-
-"Id": "5bd6f273b0bdf90001dc91c3",
-
-"AbortMigration": "true",
-
-}
-
 To abort migration process, we will have following API
 
 POST: http://127.0.0.1:8089/v1/adminTenantId/jobs/{{ Job-ID }}/abort
@@ -115,7 +88,7 @@ Response:
 
 "Id": "5bd6f273b0bdf90001dc91c3",
 
-"JobStatus": "aborted",
+"Status": "aborted",
 
 }
 
