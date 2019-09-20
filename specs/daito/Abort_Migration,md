@@ -1,0 +1,84 @@
+# Multi-Cloud Feature Enhancements: Progress, Time Estimation and Abort Migration Features
+
+**Author(s):** Click2Cloud Inc (India)
+
+# Background
+
+=Existing OpenSDS Multi-Cloud project do not support Abort migration method for running migration process.
+
+# Goals
+- Add Abort Migration method.
+
+# Non-Goals
+- Pause and Resume Migration.
+
+# Architecture Diagram 
+  
+####   Abort-migration
+
+##### 1. Database method
+Add 1 parameter AbortMigration in database,
+
+In migration process, after migration of each object, it will check the value of “AbortMigration”,
+if it is “false” then it will continue migration process for further objects and if it is assigned as
+“true” it will break the process and come out of for loop.   
+
+Default value of “AbortMigration” is “False”
+
+![picture](5.png)
+
+                        FIG: Abort-migration Process
+                        
+
+     
+  
+ ##### 2. Finite State Machine method an using code (Implemented)       
+ 
+ - We are working on another approach in which using code and less interaction with database,
+   one can pause, resume or cancel the process (preferable).
+   
+ - Finite State Machine (FSM, ref: https://github.com/looplab/fsm) will manage the
+   migration process i.e. abort migration smoothly (in future we will add pause,
+   resume, restart feature too.)
+   
+ - Use cache in managing migration process for good performance.
+ 
+  ![picture](FSM.png)
+  
+                        FSM Model
+  
+  ![picture](6.png)
+  
+                        FIG: Abort-migration using FMS model 
+ 
+#  Abort API
+
+##### a. Database method
+
+To abort migration process, we will have following API
+
+POST: http://127.0.0.1:8089/v1/adminTenantId/jobs/{{ Job-ID }}/abort
+
+Response:
+
+{
+
+"Id": "5bd6f273b0bdf90001dc91c3",
+
+"Status": "aborted",
+
+}
+
+# References
+
+#### Abort migration using FSM model
+
+1. https://github.com/vaughan0/go-fsm
+
+2. https://github.com/looplab/fsm
+
+3. https://github.com/rynorris/fsm
+
+4. https://github.com/Zumata/fsm
+
+5. https://github.com/yandd/fsm
