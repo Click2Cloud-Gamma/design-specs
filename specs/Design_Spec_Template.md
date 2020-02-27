@@ -1,22 +1,23 @@
 # Title
 
-**Author(s)**: [Jane Doe](https://github.com/jane-doe)
+**Author(s)**: [Click2Cloud](https://github.com/Click2Cloud)
 
 ## Summary
 
-This is a summary of this proposal.
+In Gelato Project of OpenSDS, user can migrate its data from any on-premise or cloud's object storage to any on-premise or cloud provider's object storage. Current version of OpenSDS does not have support for controlling ongoing or upcoming migration like pause, resume, abort migration job. So in this design-spec, we will discuss about those features to manage migration job smooothly.
 
 ## Motivation
 
-Describe why this proposal is needed.
+During migration, due to network issue or any technical reason if user wants to put the migration job on hold and resume it later, currently OpenSDS do not have option for the same. So adding features like Pause, Resume and Abort migration will allow user to manage migration job smoothly 
 
 ### Goals
 
-What will be addressed by the proposal?
+1. Add Pause operation for migration job
+2. Add Resume Operation for migration job
 
 ### Non-Goals
 
-What will not be addressed by the proposal?
+Use of Redis or TiDB 
 
 ## Design Details
 
