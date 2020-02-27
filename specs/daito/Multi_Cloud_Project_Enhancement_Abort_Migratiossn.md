@@ -27,13 +27,13 @@ FSM Model for object Migration
 As shown below, when after receiving migration job request from dataflow, datamover will have a Finite State Machine Model which will hold the state of  migration job. We have check points at various points as shown in following figure which will check whether the job is aborted or not, if it is aborted then it will perform job cleaning steps, if required ( job cleaning steps in current patch is to delete fragments of multi-part upload on destination bucket using AbortMultipart method). Then it will stop the process smoothly. 
 
 This is Nearly real-time process (for eg. if some object download request is called and then user requested to abort, abort process will wait for object to download and then stop the process)
-![picture](Abort_migration.png)
+![picture](block_storag.png)
 
 
 
 
 ### REST API impact
-![picture](Alibaba_osss.png)
+![picture](block_storag.png)
 
 
 
