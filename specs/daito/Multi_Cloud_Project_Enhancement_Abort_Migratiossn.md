@@ -29,6 +29,7 @@ As shown below, when after receiving migration job request from dataflow, datamo
 This is Nearly real-time process (for eg. if some object download request is called and then user requested to abort, abort process will wait for object to download and then stop the process)
 ![picture](block_storag.png)
 
+![Alibaba backend](Alibaba_backend.PNG?raw=true "Alibaba Backend")
 
 
 
