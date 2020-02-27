@@ -8,7 +8,7 @@ In existing OpenSDS Gelato project, we don't have any option using which user ca
 
 * Add support of Alibaba OSS service in OpenSDS Gelato Project.
 
-### Design Details
+## Design Details
 
 ![](alibaba.png)
 
