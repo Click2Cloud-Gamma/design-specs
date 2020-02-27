@@ -34,6 +34,8 @@ This is Nearly real-time process (for eg. if some object download request is cal
 
 ### REST API impact
 
+![](Alibaba_oss.png)
+
 To abort migration process, we will have following API
 
 POST: http://127.0.0.1:8089/v1/adminTenantId/jobs/{{ Job-ID }}/abort
