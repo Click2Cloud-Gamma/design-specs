@@ -33,8 +33,8 @@ This is Nearly real-time process (for eg. if some object download request is cal
 
 
 ### REST API impact
+![picture](Alibaba_osss.png)
 
-![](Alibaba_osss.png)
 
 
 ![](n_a.png)
