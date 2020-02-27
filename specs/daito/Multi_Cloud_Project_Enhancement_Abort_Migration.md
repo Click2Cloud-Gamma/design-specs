@@ -22,7 +22,7 @@ In existing OpenSDS Gelato project, we don't have any option using which user ca
 ## Design Details
 FSM Model for object Migration
 
-![picture](FSM.png)
+![picture](alibaba.png)
 
 As shown below, when after receiving migration job request from dataflow, datamover will have a Finite State Machine Model which will hold the state of  migration job. We have check points at various points as shown in following figure which will check whether the job is aborted or not, if it is aborted then it will perform job cleaning steps, if required ( job cleaning steps in current patch is to delete fragments of multi-part upload on destination bucket using AbortMultipart method). Then it will stop the process smoothly. 
 
